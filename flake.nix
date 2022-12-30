@@ -1,31 +1,37 @@
 {
-  description = "nat's nixos configuration";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    limine = {
-      url = "github:czapek1337/limine-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs =
     { self
     , nixpkgs
-    , limine
+    , nixos-hardware
     ,
-    }:
-      with nixpkgs; {
-        nixosConfigurations = {
-          boiler = lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              limine.nixosModule
-              ./hosts/boiler
-              ./hosts/common.nix
-              ./hosts/common-pc.nix
-            ];
-          };
+    } @ inputs:
+    let
+      inherit (self) outputs;
+    in
+    {
+      overlays = import ./overlays;
+
+      nixosConfigurations = {
+        x230 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-linux";
+          modules = [ ./nixos/hosts/x230 ];
+        };
+        x280 = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-linux";
+          modules = [ ./nixos/hosts/x280 ];
+        };
+        wyse = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          system = "x86_64-linux";
+          modules = [ ./nixos/hosts/wyse ];
         };
       };
+    };
 }
