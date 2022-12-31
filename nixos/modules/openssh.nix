@@ -2,7 +2,6 @@
   services.openssh = {
     enable = true;
     openFirewall = true;
-    kexAlgorithms = [ "sntrup761x25519-sha512@openssh.com" ];
     ciphers = [ "chacha20-poly1305@openssh.com" ];
     macs = [ "-*" ];
     permitRootLogin = lib.mkDefault "no";
