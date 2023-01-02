@@ -9,5 +9,6 @@
     wine-staging
     lollypop
     prismlauncher-qt5
+    foxitreader
   ];
 }
