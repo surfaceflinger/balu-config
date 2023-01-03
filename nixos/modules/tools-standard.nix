@@ -24,6 +24,7 @@
     screen
     rclone
     yt-dlp
+    inetutils
   ];
 
   programs.nano.nanorc = ''
