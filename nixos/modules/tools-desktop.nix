@@ -11,5 +11,6 @@
     prismlauncher-qt5
     evince
     libimobiledevice
+    notion-app-enhanced
   ];
 }
