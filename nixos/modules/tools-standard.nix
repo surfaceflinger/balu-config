@@ -25,6 +25,7 @@
     rclone
     yt-dlp
     inetutils
+    exfat
   ];
 
   programs.nano.nanorc = ''
