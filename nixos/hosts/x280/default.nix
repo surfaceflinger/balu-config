@@ -1,4 +1,4 @@
-{ inputs, modulesPath, ... }:
+{ pkgs, inputs, modulesPath, ... }:
 
 {
   imports =
@@ -38,4 +38,9 @@
 
   # Networking
   networking.hostName = "x280";
+
+  environment.systemPackages = with pkgs; [
+    jetbrains.idea-community
+  ];
+
 }
