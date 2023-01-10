@@ -12,6 +12,5 @@
     evince
     libimobiledevice
     notion-app-enhanced
-    newsflash
   ];
 }
