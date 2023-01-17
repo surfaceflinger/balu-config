@@ -39,8 +39,16 @@
   # Networking
   networking.hostName = "x280";
 
+  # Power management / modern intel_pstate
+  services.tlp = {
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    };
+  };
+
+  # Additional packages
   environment.systemPackages = with pkgs; [
     jetbrains.idea-community
   ];
-
 }
