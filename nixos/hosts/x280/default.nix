@@ -50,5 +50,6 @@
   # Additional packages
   environment.systemPackages = with pkgs; [
     jetbrains.idea-community
+    mgba
   ];
 }
