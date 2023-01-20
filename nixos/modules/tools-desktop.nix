@@ -12,5 +12,6 @@
     evince
     libimobiledevice
     notion-app-enhanced
+    mono
   ];
 }
