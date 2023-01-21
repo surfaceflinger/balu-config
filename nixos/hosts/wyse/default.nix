@@ -47,9 +47,6 @@
     networkmanager.enable = true;
   };
 
-  # Cringe
-  services.openssh.permitRootLogin = "yes";
-
   # Vomit. not even trying to understand this shit.
   services.samba = {
     enable = true;
