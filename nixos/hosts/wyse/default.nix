@@ -14,6 +14,9 @@
     kernelModules = [ "kvm-amd" ];
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  
+  # so that git works
+  security.polkit.enable = true;
 
   # Storage
   fileSystems."/" =
@@ -85,7 +88,7 @@
       After = "network-online.target nss-lookup.target";
     };
   };
-
+  
   users.users.torenciarz = {
     group = "torrent";
     isNormalUser = true;
