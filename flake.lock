@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "hypixel-tracker": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1674316882,
+        "narHash": "sha256-lY7BNQbGBOerzO/2/t+b4uEP5VQLK2CjPdZRD6d0hBg=",
+        "owner": "0x8008",
+        "repo": "hypixel-tracker",
+        "rev": "f7a416ef433b95b212278215e00b098275df2c3e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0x8008",
+        "repo": "hypixel-tracker",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1673803274,
@@ -34,6 +54,7 @@
     },
     "root": {
       "inputs": {
+        "hypixel-tracker": "hypixel-tracker",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs"
       }

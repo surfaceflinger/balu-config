@@ -2,13 +2,17 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    hypixel-tracker = {
+      url = "github:0x8008/hypixel-tracker";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     { self
     , nixpkgs
     , nixos-hardware
-    ,
+    , hypixel-tracker
     } @ inputs:
     let
       inherit (self) outputs;

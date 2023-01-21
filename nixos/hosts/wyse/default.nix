@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, inputs, lib, pkgs, modulesPath, ... }:
 
 {
   imports =
@@ -6,6 +6,7 @@
       (modulesPath + "/installer/scan/not-detected.nix")
       ../../presets/server.nix
       ../../modules/user-bw.nix
+      inputs.hypixel-tracker.nixosModule
     ];
 
   # HW
@@ -15,9 +16,6 @@
   };
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   
-  # so that git works
-  security.polkit.enable = true;
-
   # Storage
   fileSystems."/" =
     {
@@ -94,4 +92,6 @@
     isNormalUser = true;
   };
   users.groups.torrent = { };
+
+  services.hypixel-tracker.enable = true;
 }
