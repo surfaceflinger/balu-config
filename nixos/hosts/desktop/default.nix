@@ -21,6 +21,7 @@
     enable = true;
     devices = [ "nodev" ];
     efiSupport = true;
+    useOSProber = true;
   };
 
   # Miscellaneous
