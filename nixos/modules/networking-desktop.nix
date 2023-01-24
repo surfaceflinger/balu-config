@@ -2,8 +2,8 @@
   imports = [ ./networking-base.nix ];
 
   networking = {
-    useDHCP = true;
-    networkmanager.enable = false;
+    useDHCP = false;
+    networkmanager.enable = true;
   };
 
   services.avahi = {
