@@ -1,11 +1,11 @@
-{ config, inputs, pkgs, modulesPath, ... }:
+{ config, inputs, pkgs, modulesPath, lib, ... }:
 
 {
   imports = [
     # Stuff for handling Incel CPU and Novideo GPU 
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
+    inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     # User stuff
@@ -42,7 +42,6 @@
   };
 
   # Miscellaneous
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   networking.hostName = "incel";
