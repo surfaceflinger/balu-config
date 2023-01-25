@@ -36,7 +36,7 @@
           system = "x86_64-linux";
           modules = [ ./nixos/hosts/wyse ];
         };
-        desktop = nixpkgs.lib.nixosSystem {
+        incel = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           system = "x86_64-linux";
           modules = [ ./nixos/hosts/desktop ];
