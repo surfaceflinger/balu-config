@@ -16,6 +16,23 @@
 
   ];
 
+  # Kernel things
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
+  # Drives
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/7e2ab1ce-3f37-43d5-ae14-d0bbd7c91408";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" = # Windows boot partition as well, so I pray to God nothing breaks
+    { device = "/dev/disk/by-uuid/7022-9C68";
+      fsType = "vfat";
+    };
+
   # Bootloader
   boot.loader.grub = {
     enable = true;
@@ -25,7 +42,11 @@
   };
 
   # Miscellaneous
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   networking.hostName = "incel";
+  
   system.autoUpgrade.enable = false;
   services.xserver.displayManager.gdm.autoSuspend = false;
 
