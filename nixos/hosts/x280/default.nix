@@ -52,5 +52,6 @@
     jetbrains.idea-community
     mgba
     pywal
+    qbittorrent
   ];
 }
