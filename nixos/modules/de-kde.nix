@@ -15,9 +15,9 @@
   ]
 
   # Other software
-  environment.systemPackages = with pkgs; [
-    # Nothing necessary here so far.
-  ];
+  #environment.systemPackages = with pkgs; [
+  # Nothing necessary here so far.
+  #];
 
   fonts = {
     fonts = with pkgs; [
