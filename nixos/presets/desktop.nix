@@ -3,6 +3,7 @@
     ../modules/anime4k.nix
     ../modules/base.nix
     ../modules/chromium.nix
+    ../modules/de-kde.nix
     ../modules/desktop-environment.nix
     ../modules/mitigations-off.nix
     ../modules/networking-desktop.nix
